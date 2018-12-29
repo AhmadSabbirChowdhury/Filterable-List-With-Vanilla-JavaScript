@@ -1,0 +1,152 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/simplex/bootstrap.min.css">
+    <title>Filterable List With Vanilla JavaScript</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="center-align" style="margin-top:36px; font-size: 40px;">
+            My Contacts
+        </h1>
+        <!-- Search Option -->
+        <input type="text" id="filterInput" placeholder="Search Names..">
+        <ul id="names" class="collection with-header">
+            <!-- A collection header -->
+            <li class="collection-header">
+                <h5>A</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Adam <br> +880 1239876388</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Alap <br> +880 1239876388</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Anny <br> +880 1239876388</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Abdullah <br> +880 1239876388</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Adnan <br> +880 1239876388</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Amir <br> +880 1239876388</a>
+            </li>
+
+            <!-- B collection header -->
+            <li class="collection-header">
+                <h5>B</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Belal <br> +880 1239876388</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Badhon <br> +880 1239876388</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Barsha <br> +880 1239876388</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Bob <br> +880 1239876388</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Bithi <br> +880 1239876388</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Barat <br> +880 1239876388</a>
+            </li>
+
+            <!-- C collection header -->
+            <li class="collection-header">
+                <h5>C</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Cathy <br> +880 1239876388</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Courtney <br> +880 1239876388</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Cox <br> +880 1239876388</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Cally <br> +880 1239876388</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Comona <br> +880 1239876388</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Chukkhi<br> +880 1239876388</a>
+            </li>
+
+             <!-- D collection header -->
+             <li class="collection-header">
+                <h5>D</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Dathy <br> +880 1239876388</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Dourtney <br> +880 1239876388</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Dox <br> +880 1239876388</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Dally <br> +880 1239876388</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Domona <br> +880 1239876388</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Dominic<br> +880 1239876388</a>
+            </li>
+
+            <!-- And so on.. -->
+        </ul>
+    </div>
+
+    <!-- JS -->
+    <script>
+        //Get Input Element
+        let filterInput = document.getElementById("filterInput");
+
+        //Add Event Listener
+        filterInput.addEventListener('keyup', filterNames);
+
+        function filterNames() {
+            //Get value of input
+            let filterValue = document.getElementById('filterInput').value.toUpperCase();
+            // console.log(filterValue);
+
+            //Get Names UL
+            let ul = document.getElementById('names');
+            //Get Items from UL
+            let li = ul.querySelectorAll('li.collection-item');
+
+            //Loop throught collection-item Li's
+            for (let i = 0; i < li.length; i++) {
+                let a = li[i].getElementsByTagName('a')[0];
+
+                //If matched
+                if (a.innerHTML.toUpperCase().indexOf(filterValue) > -1) {
+                    li[i].style.display = '';
+                } else {
+                    li[i].style.display = 'none';
+                }
+            }
+
+        };
+    </script>
+
+</body>
+
+</html>
